@@ -1,10 +1,44 @@
-# Projeto_Energia
+# EcoGreen - Monitoramento e Economia de Energia
 
 ## Integrantes do Grupo
 
 *Paulo Sergio Caetano Moreno Mafra* - Estudante na unidade Paulista, responsável pelo código fonte.
 *Giovanna Lima Giantomaso* - Estudante na unidade Paulista, responsável pelo banco de dados.    
 *Rebeca Silva Lopes* - Estudante na unidade Paulista, responsável pela documentação do projeto.
+
+## Problema
+Atualmente, 30% da energia residencial é desperdiçada, aumentando os custos e impactando o meio ambiente. Embora 85% das pessoas queiram economizar, 60% não sabem como começar. As soluções existentes são complexas e caras, criando a oportunidade para algo mais simples e motivador.
+
+## Solução
+O EcoGreen é uma plataforma prática e interativa que ajuda usuários a economizarem energia. Com cadastro e login seguros, os usuários podem:
+- Registrar mensalmente seu consumo de energia.
+- Receber feedback personalizado, como "Bom uso de energia" ou "Alto uso de energia".
+- Acompanhar um histórico visual para entender o impacto de suas ações.
+- Acumular pontos ao reduzir o consumo, que podem ser convertidos em descontos na conta de energia.
+
+Essa abordagem transforma a economia de energia em algo simples, sustentável e recompensador.
+
+## Público-Alvo
+- Consumidores residenciais conscientes sobre o impacto ambiental.
+- Jovens adultos interessados em sustentabilidade.
+- Pequenos negócios que buscam práticas sustentáveis e economia de energia.
+
+## Benefícios e Impactos
+- Redução nas contas de energia.
+- Promoção de hábitos sustentáveis e educação sobre consumo energético.
+- Diminuição da pegada de carbono.
+- Engajamento contínuo através da gamificação.
+
+## Modelo de Negócio
+O EcoGreen utiliza um programa de pontos que recompensa usuários com descontos reais na conta de energia. Parcerias com empresas do setor ajudam a sustentar o sistema e promovem a fidelização de clientes.
+
+## Protótipo de Telas
+1. **Tela de Login e Cadastro**: Acesso seguro às informações do usuário.
+2. **Dashboard de Consumo**: Visualização clara e interativa do uso mensal.
+3. **Histórico de Consumo**: Acompanhamento do progresso e impacto ao longo do tempo.
+
+## Nossa Visão
+Com o EcoGreen, economizar energia se torna uma experiência recompensadora. Juntos, podemos transformar o consumo sustentável em um impacto positivo para todos.
  
 ## Requisitos do Software
  
