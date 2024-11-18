@@ -6,6 +6,14 @@
 *Giovanna Lima Giantomaso* - Estudante na unidade Paulista, responsável pelo banco de dados.    
 *Rebeca Silva Lopes* - Estudante na unidade Paulista, responsável pela documentação do projeto.
 
+## Link da Proposta Tecnológica
+ 
+[Video com codigo](link vai aqui)
+
+## Link do pitch
+
+[Pitch](link vai aqui)
+
 ## Problema
 Atualmente, 30% da energia residencial é desperdiçada, aumentando os custos e impactando o meio ambiente. Embora 85% das pessoas queiram economizar, 60% não sabem como começar. As soluções existentes são complexas e caras, criando a oportunidade para algo mais simples e motivador.
 
@@ -14,7 +22,6 @@ O EcoGreen é uma plataforma prática e interativa que ajuda usuários a economi
 - Registrar mensalmente seu consumo de energia.
 - Receber feedback personalizado, como "Bom uso de energia" ou "Alto uso de energia".
 - Acompanhar um histórico visual para entender o impacto de suas ações.
-- Acumular pontos ao reduzir o consumo, que podem ser convertidos em descontos na conta de energia.
 
 Essa abordagem transforma a economia de energia em algo simples, sustentável e recompensador.
 
@@ -54,10 +61,6 @@ Com o EcoGreen, economizar energia se torna uma experiência recompensadora. Jun
 4. Rodar os scripts SQL;
 5. Rodar o projeto;
 6. Executar as requisições.
- 
-## Link da Proposta Tecnológica
- 
-[Proposta Tecnológica](link vai aqui)
  
 ## Link para Documentação Swagger
  
