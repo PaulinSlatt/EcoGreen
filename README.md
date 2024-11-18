@@ -44,7 +44,7 @@ Com o EcoGreen, economizar energia se torna uma experiência recompensadora. Jun
  
 - Instalação do Java 17;
 - Instalação do MySQL na máquina.
-- - Cração do database na maquina local.
+- Criação do database na maquina local.
  
 ## Instruções de como rodar a aplicação
  
