@@ -65,9 +65,8 @@ public class UsuarioService {
 
         // Casting para UsuarioUserDetails para extrair o objeto Usuario interno
         UsuarioUserDetails usuarioDetails = (UsuarioUserDetails) authentication.getPrincipal();
-        Usuario usuario = usuarioDetails.getUsuario(); // Extrai o objeto Usuario
-
-        String token = tokenService.gerarToken(usuario); // Passa o Usuario diretamente para gerarToken
+        Usuario usuario = usuarioDetails.getUsuario();
+        String token = tokenService.gerarToken(usuario);
 
         return new LoginResponseDTO(token, new ListaUsuarioDTO(usuario));
     }

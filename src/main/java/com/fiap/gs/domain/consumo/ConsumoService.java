@@ -12,10 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -41,7 +38,6 @@ public class ConsumoService {
         // Busca o consumo do mês anterior
         Optional<Consumo> consumoAnteriorOpt = buscarConsumoMesAnterior(usuario.getId(), dados.data());
 
-        // Calcula a tendência com base no consumo anterior e armazena a mensagem completa
         ConsumoTendencia tendencia = calcularTendencia(dados.consumoKwh(), consumoAnteriorOpt);
         consumo.setTendencia(tendencia);
 
@@ -60,20 +56,21 @@ public class ConsumoService {
                 return ConsumoTendencia.IGUAL;
             }
         } else {
-            // Retorna PRIMEIRO_REGISTRO ou uma outra tendência padrão se não houver consumo anterior
+
             return ConsumoTendencia.PRIMEIRO_REGISTRO;
         }
     }
 
     @PreAuthorize("isAuthenticated()")
     public Optional<Consumo> buscarConsumoMesAnterior(Long usuarioId, LocalDate dataAtual) {
+
         List<Consumo> consumosUsuario = repository.findAllByUsuarioIdAndAtivoTrue(usuarioId);
-        LocalDate mesAnterior = dataAtual.minusMonths(1);
+
+        consumosUsuario.forEach(consumo -> System.out.println("DEBUG: Consumo encontrado -> " + consumo));
 
         return consumosUsuario.stream()
-                .filter(consumo -> consumo.getData().getMonthValue() == mesAnterior.getMonthValue() &&
-                        consumo.getData().getYear() == mesAnterior.getYear())
-                .findFirst();
+                .filter(consumo -> consumo.getData().isBefore(dataAtual) || consumo.getData().isEqual(dataAtual))
+                .max(Comparator.comparing(Consumo::getData));
     }
 
     @PreAuthorize("isAuthenticated()")
@@ -84,10 +81,17 @@ public class ConsumoService {
     @PreAuthorize("isAuthenticated()")
     @Transactional
     public Consumo atualizar(AttConsumoDTO dados) {
-        var consumo = repository.findById(dados.id())
-                .orElseThrow(() -> new EntityNotFoundException("Consumo não encontrado"));
+        Consumo consumo = repository.findById(dados.id()).orElseThrow(() -> new EntityNotFoundException("Consumo não encontrado"));
+
         consumo.atualizarInformacoes(dados);
-        return consumo;
+
+        Optional<Consumo> consumoAnteriorOpt = buscarConsumoMesAnterior(consumo.getUsuario().getId(), dados.data());
+
+        ConsumoTendencia novaTendencia = calcularTendencia(consumo.getConsumoKwh(), consumoAnteriorOpt);
+
+        consumo.setTendencia(novaTendencia);
+
+        return repository.save(consumo);
     }
 
     @PreAuthorize("isAuthenticated()")
@@ -106,7 +110,7 @@ public class ConsumoService {
 
     @PreAuthorize("isAuthenticated()")
     public List<ConsumoDTO> listarConsumosPorUsuario(Long usuarioId) {
-        // Busca todos os consumos ativos do usuário, ordenados por data (ascendente)
+
         List<Consumo> consumos = repository.findAllByUsuarioIdAndAtivoTrue(usuarioId).stream()
                 .sorted((c1, c2) -> c1.getData().compareTo(c2.getData()))
                 .collect(Collectors.toList());
@@ -115,14 +119,9 @@ public class ConsumoService {
         Consumo consumoAnterior = null;
 
         for (Consumo consumoAtual : consumos) {
-            // Calcula a tendência com relação ao consumo anterior
             ConsumoTendencia tendencia = calcularTendencia(consumoAtual.getConsumoKwh(), Optional.ofNullable(consumoAnterior));
             consumoAtual.setTendencia(tendencia);
-
-            // Adiciona o consumo atual ao DTO
             consumoDTOs.add(new ConsumoDTO(consumoAtual));
-
-            // Atualiza o consumoAnterior para o próximo cálculo de tendência
             consumoAnterior = consumoAtual;
         }
 
