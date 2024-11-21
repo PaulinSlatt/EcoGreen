@@ -2,7 +2,7 @@
 FROM gradle:7.6-jdk17-alpine AS builder
 
 WORKDIR /app
-COPY build.gradle.kts .
+COPY gradle/build.gradle .
 COPY src src
 
 RUN gradle build
