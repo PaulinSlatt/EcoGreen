@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "3fbcebe0-b2e7-4c31-a248-b2da998780d0",
+		"name": "gs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33670610"
+	},
+	"item": [
+		{
+			"name": "cadastro user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"nicola boiola\",\r\n  \"email\": \"nic@example.com\",\r\n  \"senha\": \"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastro user Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nic@example.com\",\r\n    \"senha\": \"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJjZWxAZXhhbXBsZS5jb20iLCJpc3MiOiJHUyIsImV4cCI6MTczMTkxNDQyOX0.C-NQELrv_WKevh1JmaM0e3LYfo7BwyVbT6RYKdR6OSo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar  user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJjZWxAZXhhbXBsZS5jb20iLCJpc3MiOiJHUyIsImV4cCI6MTczMTkxNDQyOX0.C-NQELrv_WKevh1JmaM0e3LYfo7BwyVbT6RYKdR6OSo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"10\",  \r\n  \"nome\": \"Marcel Silva Lopes\",\r\n  \"email\": \"Marcelll@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/editar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"editar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletar user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJjZWxsbEBleGFtcGxlLmNvbSIsImlzcyI6IkdTIiwiZXhwIjoxNzMxOTE0NTUyfQ.U-8x2VySbOd90fGLDurnpvlzyzSFoe0A5EUF555nkQU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post consumo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJjZWxsbEBleGFtcGxlLmNvbSIsImlzcyI6IkdTIiwiZXhwIjoxNzMxOTE0NTUyfQ.U-8x2VySbOd90fGLDurnpvlzyzSFoe0A5EUF555nkQU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuarioId\": 5,\r\n  \"data\": \"2025-04-21\",\r\n  \"consumoKwh\": 212.75\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/consumo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consumo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get consumo por usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNAZXhhbXBsZS5jb20iLCJpc3MiOiJHUyIsImV4cCI6MTczMTk3MDg5OH0.oKVVk1Nv7cdMEfaAtRLljefDDYcN1mca_IQVjz4RhwI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/consumo/usuario/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consumo",
+						"usuario",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get consumo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJjZWxsbEBleGFtcGxlLmNvbSIsImlzcyI6IkdTIiwiZXhwIjoxNzMxOTE0NTUyfQ.U-8x2VySbOd90fGLDurnpvlzyzSFoe0A5EUF555nkQU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/consumo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consumo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar consumo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJha2l0YUBleGFtcGxlLmNvbSIsImlzcyI6IkdTIiwiZXhwIjoxNzMxOTEyMTc5fQ.UPPYE5TpvbjEtk6hULy7b9E23N3QpMJdKRqrRBN7qBk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 49,\r\n  \"consumoKwh\": 1221.45,\r\n  \"data\": \"2024-02-21\"\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/consumo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consumo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluir consumo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJjZWxAZXhhbXBsZS5jb20iLCJpc3MiOiJHUyIsImV4cCI6MTczMTkxNDk3OH0.raUWXM19meOM4Q7rsQvWfoEMCInETCd2gGeEGOJf4nQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/consumo/49",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consumo",
+						"49"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
