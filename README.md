@@ -8,11 +8,14 @@
 
 ## Link da Proposta Tecnológica
  
-[Video com codigo](link vai aqui)
+[Video com codigo](https://www.youtube.com/watch?v=Z1lVtJJwOYo)
 
 ## Link do pitch
 
-[Pitch](link vai aqui)
+[Pitch](https://youtu.be/jC7uISy-Cmk?si=L8kN8VXm3ZFSOUZR)
+
+## Link Nuvem Render
+[Nuvem](https://ecogreen-11.onrender.com)
 
 ## Problema
 Atualmente, 30% da energia residencial é desperdiçada, aumentando os custos e impactando o meio ambiente. Embora 85% das pessoas queiram economizar, 60% não sabem como começar. As soluções existentes são complexas e caras, criando a oportunidade para algo mais simples e motivador.
@@ -46,7 +49,13 @@ O EcoGreen utiliza um programa de pontos que recompensa usuários com descontos 
 
 ## Nossa Visão
 Com o EcoGreen, economizar energia se torna uma experiência recompensadora. Juntos, podemos transformar o consumo sustentável em um impacto positivo para todos.
- 
+
+### Diagrama de Classes
+![Diagrama de Classes](src/main/resources/static.imagensArquitetura/diagramaDeClasses.png)
+
+### Modelo do Banco de Dados
+![Modelo do Banco de Dados](src/main/resources/static.imagensArquitetura/ModeloBD.png)
+
 ## Requisitos do Software
  
 - Instalação do Java 17;
