@@ -51,10 +51,10 @@ O EcoGreen utiliza um programa de pontos que recompensa usuários com descontos 
 Com o EcoGreen, economizar energia se torna uma experiência recompensadora. Juntos, podemos transformar o consumo sustentável em um impacto positivo para todos.
 
 ### Diagrama de Classes
-![Diagrama de Classes](src/main/resources/static.imagensArquitetura/diagramaDeClasses.png)
+![Diagrama de Classes](src/main/resources/static/imagensArquitetura/diagramaDeClasses.png)
 
 ### Modelo do Banco de Dados
-![Modelo do Banco de Dados](src/main/resources/static.imagensArquitetura/ModeloBD.png)
+![Modelo do Banco de Dados](src/main/resources/static/imagensArquitetura/ModeloBD.png)
 
 ## Requisitos do Software
  
