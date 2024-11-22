@@ -49,10 +49,12 @@ public class SecurityConfiguration {
                     // Qualquer outra rota exige autenticação
                     req.anyRequest().authenticated();
                 })
-                .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin())) // Configuração recomendada para o H2 Console
+
+                .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .addFilterBefore(new SecurityFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
