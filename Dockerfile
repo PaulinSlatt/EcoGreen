@@ -7,6 +7,9 @@ COPY build.gradle settings.gradle gradlew ./
 COPY src ./src
 COPY gradle ./gradle
 
+# Dar permissão de execução ao Gradle Wrapper
+RUN chmod +x gradlew
+
 # Build do projeto
 RUN ./gradlew clean build --no-daemon -x test
 
