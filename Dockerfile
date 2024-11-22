@@ -1,11 +1,16 @@
-FROM ubuntu:latest
-LABEL authors="PaulinSlatt"
+FROM gradle:7.6.0-jdk17 AS build
+WORKDIR /app
 
-# Instalação do Nginx como exemplo de servidor
-RUN apt-get update && apt-get install -y nginx && apt-get clean
+COPY --chown=gradle:gradle . .
 
-# Exponha a porta 80
-EXPOSE 80
+RUN gradle build --no-daemon
 
-# Comando para iniciar o Nginx
-CMD ["nginx", "-g", "daemon off;"]
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY --from=build /app/build/libs/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
