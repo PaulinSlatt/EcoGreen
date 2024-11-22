@@ -33,6 +33,9 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
+                    // Permitir acesso ao H2 Console
+                    req.requestMatchers("/h2-console/**").permitAll();
+
                     // Permitir acesso aos endpoints do Swagger
                     req.requestMatchers(
                             "/v3/api-docs/**",
@@ -40,17 +43,16 @@ public class SecurityConfiguration {
                             "/swagger-ui.html"
                     ).permitAll();
 
-                    // Permitir acesso aos endpoints especificados
+                    // Permitir acesso aos endpoints de usuários
                     req.requestMatchers("/usuarios/login", "/usuarios").permitAll();
 
                     // Qualquer outra rota exige autenticação
                     req.anyRequest().authenticated();
                 })
+                .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin())) // Configuração recomendada para o H2 Console
                 .addFilterBefore(new SecurityFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
-
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
