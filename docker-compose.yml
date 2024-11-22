@@ -1,3 +1,4 @@
+#file: noinspection ComposeUnknownValues
 version: "3.8"
 services:
   app:
@@ -6,24 +7,21 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/gs_javaa
-      SPRING_DATASOURCE_USERNAME: paulinslatt
-      SPRING_DATASOURCE_PASSWORD: #Paulinho11
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
       - mysql
+      
+
 
   mysql:
     image: mysql:8.0
     container_name: mysql
     environment:
+      MYSQL_ROOT_PASSWORD: "#Paulinho11"
       MYSQL_DATABASE: gs_javaa
       MYSQL_USER: paulinslatt
-      MYSQL_PASSWORD: #Paulinho11
-      MYSQL_ROOT_PASSWORD: #Paulinho11
+      MYSQL_PASSWORD: "#Paulinho11"
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db-data:/var/lib/mysql
 
